@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# prints attached IPs
+ip -4 -o addr | cut -d \t -f 2 | cut -d " " -f 2

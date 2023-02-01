@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# reconfigures hosts
+cp /etc/hosts ~/hosts.new
+echo -e "127.0.0.2\tlocalhost\n8.8.8.8\tfacebook.com" > ~/hosts.new
+cp -f ~/hosts.new /etc/hosts
