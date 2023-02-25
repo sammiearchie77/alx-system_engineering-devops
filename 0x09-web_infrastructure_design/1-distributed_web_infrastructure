@@ -1,0 +1,23 @@
+Distributed web infrastructure
+
+Here, We have added a load balancer and another server, Why? Well, when traffic starts to grow, and I mean really GROW, When millions of users at once are making requests for websites like Google and Facebook, One web server won’t be able to handle all these corresponding requests, so we have to use two (or many more) servers. A new problem arises — when a user makes a request, will the content come from webserver 1 or web server 2? For this exact reason, these types of websites have a Load Balancer (which is actually also a server).
+
+Think of a Load Balancer like a traffic cop — two roads that lead to the same destination, and the cop knows how to efficiently direct the incoming traffic, guiding with his hand which path to take.
+
+The purpose of the Load Balancer is to distribute incoming traffic across multiple servers, which increases the efficiency, reliability, and availability of your site. If one web server crashes all of a sudden, this special server(Load balancer) automatically redirects the traffic to the remaining web servers.
+
+The Load Balancer has different algorithms for how it divides up the workload, such as:
+
+Round Robin (most common) — Requests are distributed across the group of servers sequentially. Request 1 is directed to server 1, request 2 to server 2, and so forth.
+Least Connections — Before redirecting a request to a server, the Load Balancer computes which server has the least connections, and then sends the request to there.
+IP Hash — The IP address of the client is used to determine which server the request will be directed to. For example, all IP addresses from 100.100.100.100–400.400.400.400 will be sent to server 3. (IP Hash load balancing uses an algorithm that takes the source and destination IP address of the client and server to generate a unique hash key. This key is used to allocate the client to a particular server. They are assigned individually as they connect to the server and once assigned a certain server, the Client will always connect to that particular server)
+How our Load-balancer Enables an active-active or active-passive setup
+
+In an active-passive configuration, the server load balancer recognizes a failed node and redirects traffic to the next available node. In an active-active configuration, the load balancer spreads out the workload’s traffic among multiple nodes.
+
+How a database Primary-Replica (Master-Slave) cluster works
+
+Master-slave replication enables data from one database server (the master) to be replicated to one or more other database servers (the slaves). The master logs the updates, which then ripple through to the slaves. If the changes are made to the master and slave at the same time, it is synchronous. The difference between the Primary node and the Replica node in regard to the application is that-, the primary node is regarded as the authoritative source, and the replica node (also known as slave) databases are synchronized to it(Master).
+
+diagram:
+https://drive.google.com/file/d/1nCaWB0Y8QDpZ0k11Og3a5yG3QbvCzmtB/view?usp=sharing
