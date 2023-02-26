@@ -48,5 +48,6 @@ i) Their are more request to read data than there is to write data to database, 
 
 ii) In the case of security breach, if the components are of the same typethe attacker will find it easier to penetrate the devices since their MAC addresses are similar. 
 
+iii) It will be possible to configure corresponding components differently. This will make users to obtain different data for the same request, for example.
 
-https://drive.google.com/file/d/1YfKUjdKq3cavXosPWvMY_8gD8qQabPoR/view?usp=sharing
+https://drive.google.com/file/d/1747MrT5ohluuhrcjYFN8yRHnmS59v6eo/view?usp=sharing
