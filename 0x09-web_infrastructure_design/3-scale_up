@@ -1,0 +1,16 @@
+The additional elements in the infrastructure are:
+	1. 1 Server
+	2. 1 load-balancer
+	3. Components are split from their own servers
+
+	1. The addition of one server improves the reliability of the infras-
+	   structure since more traffic can be handled and there is more redu-
+	   ndancy in case of device failure
+	2. The addition of a load-balancer  will improve the infrastructure as 
+	   this will make the load balancer not be a SPOF anymore.
+	3. Components are split from their own servers so as to address the issue
+	   observed in the previous design whereby servers have same components.
+	   As noted this may lead to problem when their is a mismatch in config-
+	   uration of the components. By sharing the same web servers, app ser-
+ 	   vers and database, the two servers will always have access to the same
+	   logic and data.
