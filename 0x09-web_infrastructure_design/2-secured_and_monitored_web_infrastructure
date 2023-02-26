@@ -1,0 +1,52 @@
+To mitigate the challenges faced by the distributed web infrastructure designed in the previous task,there is need to introduce the SSL certification, monitoring client, and firewall.
+
+What is an SSL Certificate?
+The SSL certificate’s job is to initiate secure sessions with the user’s browser via the secure sockets layer (SSL) protocol. This secure connection can be established with the SSL certificate, which digitally connects company information to a cryptographic key. Any organization that engages in e-commerce, for instance, must have an SSL certificate on its web server to ensure the safety of customer and company information, as well as the security of financial transactions therein.
+
+How SSL Certificate Work:
+
+A browser attempts to connect to a website (i.e. a web server) secured with SSL. The browser requests that the web server identify itself.
+The web server sends the browser a copy of its SSL certificate.
+The browser checks to see whether or not it trusts the SSL certificate. If so, it sends a message to the webserver.
+The web server sends back a digitally signed acknowledgment to start an SSL encrypted session.
+Encrypted data is shared between the browser and the webserver. A public and private key are involved in the transaction. The server holds the private key while the public key is shared with the browser. Any information encoded using the private key can be decoded using the public key and any data encoded using the public key can only be decoded using the private key. This way only the intended receiver - in this case the server - of data from the user will be able to decode it.
+
+What do you stand to gain by using SSL certificates?
+
+Utilize HTTPS, which elicits a stronger Google ranking
+Create safer experiences for your customers
+Build customer trust and improve conversions
+Protect both customer and internal data
+Encrypt browser-to-server and server-to-server communication
+Increase the security of your mobile and cloud apps
+
+What Is Infrastructure Monitoring?
+
+Infrastructure Monitoring is the process of collecting health and performance data of servers, virtual machines, containers, databases, and other backend components in a tech stack. Engineers can use an infrastructure monitoring tool to visualize, analyze, and alert on metrics and understand whether a backend issue is impacting users.
+
+How Infrastructure Monitoring Works:
+
+It tracks the availability, performance, and resource utilization of hosts, containers, and other backend components. Engineers typically install software, called an agent, on their hosts. i.e physical servers, or virtual machines which use the resources of a physical server. The agent collects infrastructure metrics from hosts and sends the data to a monitoring platform for analysis and visualization. This type of monitoring software uses SNMP to communicate with the devices on the network. Infrastructure monitoring provides visibility into the health of backend components that run the applications, ensuring that critical services are available for users and that they work as expected. Other tools like ping and syslogs can also be used to monitor backend machines.
+
+Infrastructure monitoring provides visibility across multiple layers of the tech stack, including the hardware, the operating System(OS), and the application server. The hardware layer includes the physical components, such as memory chips and the processor, that your backend components use to function.
+
+Note:
+
+An organization’s applications and services can only work well for users when the underlying backend infrastructure is healthy. Infrastructure monitoring allows engineers to spot and prevent problems anywhere in the backend, which minimizes downtime and service degradation for users. Operations teams, DevOps engineers, and site reliability engineers (SREs) typically rely on infrastructure monitoring to troubleshoot or prevent any problem.
+
+What are Firewalls for?
+Firewalls are software or hardware that work as a filtration system for the data attempting to enter your computer or network. They scan packets for malicious code or attack vectors that have already been identified as established threats. Should a data packet be flagged and determined to be a security risk, the firewall prevents it from entering the network or reaching your computer. (In general, the purpose of a firewall is to reduce or eliminate the occurrence of unwanted network communications while allowing all legitimate communication to flow freely.)
+
+Points to note:
+Terminating SSL certificate at the load balancer is an issue because the communication link after the balancer to the web servers is not encoded, as such if the link between the balancer and the server is compromised, unauthorized access to data might be obtained.
+
+Having only one MYSQL server capable of accepting writes is an issue because if the master goes down, the application cannot write to the database anymore.
+
+Having servers with all the same components(database, Web server, and application server)might be a problem because:
+
+i) Their are more request to read data than there is to write data to database, hence if all servers have the same components there might be redundancy.
+
+ii) In the case of security breach, if the components are of the same typethe attacker will find it easier to penetrate the devices since their MAC addresses are similar. 
+
+
+https://drive.google.com/file/d/1YfKUjdKq3cavXosPWvMY_8gD8qQabPoR/view?usp=sharing
