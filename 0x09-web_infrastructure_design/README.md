@@ -1,4 +1,4 @@
-[![Holberton logo](https://www.holbertonschool.com/assets/holberton-logo-1cc451260ca3cd297def53f2250a9794810667c7ca7b5fa5879a569a457bf16f.png)](https://www.holbertonschool.com/)
+[![ALX School logo](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOGAsFO-9o_uNgouLXxawvyEDG61UPVuIrj_4XcYD9VGT6SRuljgChPg7J8Q_TDG80zAI&usqp=CAU)](https://www.alxafrica.com/)
 # 0x0A. Web infrastructure design #0
 
 ### Author: Samuel Archibong [<img src="https://user-images.githubusercontent.com/23224088/27935507-4e614b68-6260-11e7-8b20-d0352ef3ff53.png" height="18px"/>](https://twitter.com/geecoding)
