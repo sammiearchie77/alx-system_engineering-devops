@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# This script installs nginx on ubuntu server
+
+sudo apt-get install -y nginx
+sudo ufw allow 'Nginx HTTP'
+echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
+line="\\\trewrite ^/redirect_me http://pronic.tech permanent;"
+sudo sed -i "26i $line" /etc/nginx/sites-available/default
+sudo service nginx restart
