@@ -1,0 +1,2 @@
+onnects to my Holberton server.
+ssh -i ~/.ssh/school ubuntu@34.202.157.138
