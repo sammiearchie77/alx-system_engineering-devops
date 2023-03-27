@@ -1,2 +1,3 @@
-onnects to my Holberton server.
+# use ssh to connect to a server with private key ~/.ssh/school & user ubuntu
+#!/usr/bin/env bash
 ssh -i ~/.ssh/school ubuntu@34.202.157.138
