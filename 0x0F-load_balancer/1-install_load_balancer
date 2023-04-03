@@ -3,39 +3,44 @@
 #+    Enables management via the init script.
 #+    Distributes requests using a round-robin algorithm.
 
-sudo apt-get -y update
-sudo apt-get -y upgrade
-sudo apt-get -y install haproxy
+# Install HAProxy
+sudo apt-get update
+sudo apt-get install -y haproxy
 
-echo "ENABLED=1" >> /etc/default/haproxy
-sudo mv /etc/haproxy/haproxy.cfg{,.original}
-sudo touch /etc/haproxy/haproxy.cfg
-
-printf %s "global
-    log 127.0.0.1 local0 notice
-    maxconn 2000
+# Configure HAProxy
+sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.bak
+sudo cat <<EOT > /etc/haproxy/haproxy.cfg
+global
+    log /dev/log    local0
+    log /dev/log    local1 notice
+    chroot /var/lib/haproxy
+    stats socket /run/haproxy/admin.sock mode 660 level admin
+    stats timeout 30s
     user haproxy
     group haproxy
+    daemon
+
 defaults
     log     global
     mode    http
     option  httplog
     option  dontlognull
-    retries 3
-    option redispatch
-    timeout connect  5000
-    timeout client  10000
-    timeout server  10000
-listen hbnb
-    bind 3.84.239.19
-    mode http
-    stats enable
-    stats uri /haproxy?stats
-    balance roundrobin
-    option httpclose
-    option forwardfor
-    server 140381-web-34.202.157.138 check
-    server 140381-web-52.86.239.109 check
-" >> /etc/haproxy/haproxy.cfg
+    timeout connect 5000
+    timeout client  50000
+    timeout server  50000
 
-sudo service haproxy start
+frontend http-in
+    bind *:80
+    default_backend servers
+
+backend servers
+    balance roundrobin
+    server web-01 34.202.157.138-web-01:80 check
+    server web-02 52.86.239.109-web-02:80 check
+EOT
+
+# Enable HAProxy service
+sudo systemctl enable haproxy.service
+
+# Restart HAProxy service
+sudo systemctl restart haproxy.service
