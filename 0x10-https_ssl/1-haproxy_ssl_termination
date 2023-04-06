@@ -53,8 +53,8 @@ frontend load_balancer
 backend web_server                                                                                                                                       
         balance roundrobin                                                                                                                               
         redirect scheme https code 301 if !{ ssl_fc }                                                                                                    
-        server 86386-web-01 100.25.188.89:80 check                                                                                                      
-        server 86386-web-02 52.91.127.18:80 check                                                                                                       
+        server 86386-web-01 54.196.50.77:80 check
+	server 86386-web-02 107.21.14.181:80 check                                                                                                       
                                                                                                                                                          
 backend letsencrypt-backend                                                                                                                              
         server letsencrypt 127.0.0.1:54321
