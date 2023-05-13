@@ -1,40 +1,50 @@
-# 0x19-postmortem
-</hr>
-### Duration: 2 hours (12:00 PM - 2:00 PM EST)
-<b>Impact:</B> Users were unable to access the checkout page on our e-commerce website, resulting in a loss of potential sales. Approximately 20% of users were affected.
+# 0x19 Postmortem
 
-<b>Root Cause:</B> A recent update to the website's payment gateway integration introduced a bug that caused the checkout page to crash under certain circumstances.
+## Issue Summary:
 
-### Timeline:
+On May 5, 2023, from 2:00 PM to 4:30 PM (EST), the web server of our e-commerce website experienced an outage, resulting in slow response times and error messages for some users. Approximately 30% of our customers were affected by this outage.
 
-- <i> 12:00 PM </i> - The issue was first detected when our monitoring system alerted us to a spike in 500 errors on the checkout page.
-- <i> 12:05 PM </i>- The engineering team was notified of the issue and began investigating.
-- <i> 12:10 PM </i> - Initial investigations suggested that the issue was related to the website's database, and the team began examining the database logs and performing database queries to isolate the problem.
-- <i> 12:20 PM </i> - Further investigations revealed that the issue was actually related to the payment gateway integration, and the team began examining the payment gateway logs and code.
-- <i> 12:40 PM </i> - The team discovered a bug in the payment gateway code that was causing the checkout page to crash under certain conditions.
-- <i> 1:00 PM </i> - The incident escalated to senior engineers and the payment gateway provider.
-- <i> 1:30 PM </i> - The team worked with the payment gateway provider to develop and implement a fix for the issue.
-- <i> 2:00 PM </i> - The issue was resolved, and users were able to access the checkout page again.
+## Root Cause:
 
-### Root Cause and Resolution:
+The root cause of the outage was identified as a sudden surge in traffic caused by a marketing campaign that was launched without proper load testing. As a result, the web server was overwhelmed and could not handle the incoming requests, causing it to slow down and eventually crash.
 
-The root cause of the issue was a bug in the website's payment gateway integration code. Specifically, the bug caused the checkout page to crash when users attempted to use a certain type of credit card.
+## Timeline:
 
-To resolve the issue, the engineering team worked with the payment gateway provider to identify and fix the bug in the integration code. The fix involved updating the code to properly handle the problematic credit card type and ensuring that future updates would not introduce similar bugs.
+- <i> 2:00 PM </i> - The issue was detected when the monitoring system alerted the operations team of an increase in response times and error rates.
 
-### Corrective and Preventative Measures:
+- <i> 2:05 PM </i>- The operations team investigated the web server logs and identified a sudden surge in traffic.
 
-To prevent similar incidents from occurring in the future, the engineering team has implemented several corrective and preventative measures, including:
+- <i> 2:10 PM </i> - The team assumed that the issue was caused by a DDoS attack and initiated measures to mitigate the attack.
 
-Conducting a thorough review of all payment gateway integrations to ensure they are functioning properly and are not susceptible to similar bugs.
-Implementing more rigorous testing procedures for updates to the website and its integrations.
-Improving monitoring and alerting systems to detect and respond to similar issues more quickly in the future. 
-Developing and documenting incident response procedures to ensure that issues are escalated and resolved as quickly and efficiently as possible.
+- <i> 2:30 PM </i> - After analyzing the network traffic, the team realized that the surge in traffic was caused by a marketing campaign that was launched without proper load testing.
+
+- <i> 3:00 PM </i> - The team attempted to optimize the server configurations to handle the increased traffic but was unsuccessful.
+
+- <i> 3:30 PM </i> - The team decided to scale up the web server infrastructure by adding additional servers to handle the traffic.
+
+- <i> 4:00 PM </i> - The newly added servers were configured and deployed to handle the traffic.
+
+- <i>4:30 PM </i> - The web server infrastructure was fully operational, and the issue was resolved.
+
+## Root Cause and Resolution:
+
+The root cause of the issue was a sudden surge in traffic caused by a marketing campaign that was launched without proper load testing. To resolve the issue, the team scaled up the web server infrastructure by adding additional servers to handle the traffic.
+
+## Corrective and Preventative Measures:
+
+To prevent a similar outage from happening in the future, the following measures will be implemented:
+
+- Load testing will be performed before any new marketing campaigns or promotions are launched.
+- The web server infrastructure will be optimized for scalability and elasticity to handle sudden traffic surges.
+- The monitoring system will be enhanced to detect traffic surges and alert the operations team promptly.
+- The team will establish a standard incident response plan to address similar issues quickly and effectively.
 
 ### Tasks to address the issue:
 
-Review and update payment gateway integration code to ensure it is functioning properly.
-Develop and implement additional testing procedures for website updates and integrations.
-Update monitoring and alerting systems to detect and respond to similar issues more quickly.
-Develop and document incident response procedures to ensure issues are resolved as efficiently as possible.
+- Perform load testing before any new marketing campaigns or promotions are launched.
+- Optimize the web server infrastructure for scalability and elasticity.
+- Enhance the monitoring system to detect traffic surges and alert the operations team promptly.
+- Establish a standard incident response plan to address similar issues quickly and effectively.
+- Train the team on incident response and load testing best practices.
 
+In conclusion, the outage that occurred on our e-commerce website was caused by a sudden surge in traffic due to a marketing campaign that was launched without proper load testing. The issue was resolved by scaling up the web server infrastructure. To prevent similar outages in the future, we will implement measures such as load testing, optimizing the infrastructure, and enhancing the monitoring system.
